@@ -48,8 +48,12 @@ snake-game/
 ├── src/
 │   ├── assets/                     # 存储静态资源，如图片和音频文件
 │   ├── components/                 # 组件
+│   │   ├── DifficultySelection.tsx # 难度选择组件
 │   │   ├── Food.tsx                # 食物组件
 │   │   ├── GameBoard.tsx           # 游戏主板组件
+│   │   ├── Leaderboard.tsx         # 排行榜组件
+│   │   ├── Login.tsx               # 登录组件
+│   │   ├── Register.tsx            # 注册组件
 │   │   ├── Score.tsx               # 积分组件
 │   │   ├── Snake.tsx               # 蛇组件
 │   ├── hooks/                      # 自定义 Hooks
