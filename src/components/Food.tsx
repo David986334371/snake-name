@@ -1,12 +1,19 @@
-// 食物组件
 import React from 'react';
 
-const Food: React.FC<{ position: { x: number, y: number } }> = ({ position }) => {
-  const style = {
-    left: `${position.x}%`,
-    top: `${position.y}%`
-  };
-  return <div className="food" style={style}></div>;
+interface FoodProps {
+  position: { x: number; y: number };
+}
+
+const Food: React.FC<FoodProps> = ({ position }) => {
+  return (
+    <div
+      className="food"
+      style={{
+        left: `${position.x * 20}px`,
+        top: `${position.y * 20}px`,
+      }}
+    />
+  );
 };
 
 export default Food;

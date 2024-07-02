@@ -8,7 +8,7 @@ const DifficultySelection: React.FC = () => {
   const navigate = useNavigate();
 
   const increaseDifficulty = () => {
-    setDifficulty((prevDifficulty) => (prevDifficulty < 5 ? prevDifficulty + 1 : 5));
+    setDifficulty((prevDifficulty) => (prevDifficulty < 5 ? prevDifficulty + 1 : 1));
   };
 
   const handleDifficultySelect = () => {

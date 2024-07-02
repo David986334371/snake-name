@@ -1,9 +1,24 @@
-// 蛇组件
 import React from 'react';
 
-const Snake: React.FC = () => {
-  // Add Snake rendering logic here
-  return <div className="snake"></div>;
+interface SnakeProps {
+  segments: { x: number; y: number }[];
+}
+
+const Snake: React.FC<SnakeProps> = ({ segments }) => {
+  return (
+    <>
+      {segments.map((segment, index) => (
+        <div
+          key={index}
+          className={`snake-segment ${index === 0 ? 'snake-head' : 'snake-body'}`}
+          style={{
+            left: `${segment.x * 20}px`,
+            top: `${segment.y * 20}px`,
+          }}
+        />
+      ))}
+    </>
+  );
 };
 
 export default Snake;

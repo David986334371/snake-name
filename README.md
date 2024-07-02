@@ -32,7 +32,6 @@ snake-game/
 │   ├── assets/                     # 存储静态资源，如图片和音频文件
 │   ├── components/                 # 组件
 │   │   ├── Food.tsx                # 食物组件
-│   │   ├── Score.tsx               # 积分组件
 │   │   ├── Snake.tsx               # 蛇组件
 │   ├── hooks/                      # 自定义 Hooks
 │   │   ├── useFood.ts              # 管理食物状态和生成逻辑
