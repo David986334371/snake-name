@@ -1,4 +1,4 @@
-.register-container {
+.difficulty-container {
     width: 900px;
     height: 600px;
     background-image: url('/src/assets/background.png');
@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin: auto;
@@ -18,41 +19,37 @@
     right: 0;
   }
   
-  .register-container .input-group {
+  .difficulty-header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
   }
   
-  .register-container .input-group img {
+  .difficulty-icon {
+    width: 300px; 
+    height: 100px;
     margin-right: 10px;
-    width: 200px;
-    height: 80px;
   }
   
-  .register-container input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px; /* 调整输入框的宽度 */
+  .difficulty-level {
+    font-size: 60px;
+    color: green;
+    margin-left: 10px;
   }
   
-  .register-container .button-group {
+  .difficulty-buttons {
     display: flex;
-    justify-content: center;
-    gap: 40px; 
-
+    gap: 200px; 
   }
   
-  .register-container .button-group button {
+  .difficulty-buttons button {
     background: none;
     border: none;
     cursor: pointer;
   }
   
-  .register-container .button-group button img {
-    width: 160px;
-    height: 80px;
+  .difficulty-buttons button img {
+    width: 300px; 
+    height: auto;
   }
   
