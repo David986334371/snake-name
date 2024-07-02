@@ -48,18 +48,19 @@ snake-game/
 ├── src/
 │   ├── assets/                     # 存储静态资源，如图片和音频文件
 │   ├── components/                 # 组件
-│   │   ├── DifficultySelection.tsx # 难度选择组件
 │   │   ├── Food.tsx                # 食物组件
-│   │   ├── GameBoard.tsx           # 游戏主板组件
-│   │   ├── Leaderboard.tsx         # 排行榜组件
-│   │   ├── Login.tsx               # 登录组件
-│   │   ├── Register.tsx            # 注册组件
 │   │   ├── Score.tsx               # 积分组件
 │   │   ├── Snake.tsx               # 蛇组件
 │   ├── hooks/                      # 自定义 Hooks
 │   │   ├── useFood.ts              # 管理食物状态和生成逻辑
 │   │   ├── useGameStatus.ts        # 管理游戏状态（进行中、结束）
 │   │   ├── useSnake.ts             # 管理蛇的状态和移动逻辑
+│   ├── pages/                       # 页面组件
+│   │   ├── DifficultySelection.tsx  # 难度选择页面
+│   │   ├── Leaderboard.tsx          # 排行榜页面
+│   │   ├── Login.tsx                # 登录页面
+│   │   ├── Register.tsx             # 注册页面
+│   │   ├── GameBoard.tsx            # 游戏主页面
 │   ├── types/                      # TypeScript 类型定义
 │   │   ├── index.ts                # 项目中使用的类型和接口
 │   ├── utils/                      # 工具函数

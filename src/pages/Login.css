@@ -1,0 +1,63 @@
+.login-container {
+  width: 900px;
+  height: 600px;
+  background-image: url('/src/assets/background.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.welcome-image {
+  width: 450px;
+  height: 150px;
+}
+
+.input-group {
+  width:600px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input-group img {
+  margin-right: 10px;
+  width: 200px;
+  height: 80px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.button-group button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button-group button img {
+  width: 160px;
+  height: 80px;
+}
