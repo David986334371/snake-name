@@ -1,119 +1,131 @@
 .game-container {
-    display: flex;
-    width: 900px;
-    height: 600px;
-    background-image: url('/src/assets/background.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-  
-  .game-board {
-    flex: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #ccc;
-    position: relative;
-    background-color: #f0f0f0;
-    background-image: linear-gradient(#ddd 1px, transparent 1px), linear-gradient(to right, #ddd 1px, transparent 1px);
-    background-size: 20px 20px; /* 调整网格大小 */
-  }
-  
-  .snake-segment, .food {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-  }
-  
-  .snake-head {
-    background-color: yellowgreen;
-  }
-  
-  .snake-body {
-    background-color: green;
-  }
-  
-  .food {
-    background-color: red;
-  }
-  
-  .sidebar {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
-    padding: 10px;
-  }
-  
-  .sidebar-item {
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  .sidebar-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  .sidebar-button img {
-    width: 180px;
-    height: auto;
-  }
-  
-  .current-speed {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-  }
-  
-  .current-speed img {
-    width: 180px;
-    height: auto;
-    margin-right: 5px;
-  }
-  
-  .high-score {
-    display: flex;
-    align-items: center;
-  }
-  
-  .high-score img {
-    width: 180px;
-    height: auto;
-    margin-bottom: 5px;
-  }
-  
-  .high-score-number {
-    font-size: 24px;
-    color: green;
-    margin-top: 5px;
-  }
-  
-  .score-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .score-container img {
-    width: 180px;
-    height: auto;
-    margin-bottom: 5px;
-  }
-  
-  .score-number {
-    font-size: 24px;
-    color: #000;
-  }
-  
+  display: flex;
+  width: 900px;
+  height: 600px;
+  background-image: url('/src/assets/background.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.game-board {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  position: relative;
+  background-color: #f0f0f0;
+  background-image: linear-gradient(#ddd 1px, transparent 1px), linear-gradient(to right, #ddd 1px, transparent 1px);
+  background-size: 20px 20px; 
+}
+
+.snake-segment, .food, .bomb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.snake-head {
+  background-color: yellowgreen;
+}
+
+.snake-body {
+  background-color: green;
+}
+
+.food {
+  background-color: red;
+}
+
+.bomb {
+  background-color: black;
+}
+
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.sidebar-item {
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.sidebar-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.sidebar-button img {
+  width: 180px;
+  height: 42px;
+}
+
+.current-speed {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.current-speed img {
+  width: 180px;
+  height: auto;
+  margin-right: 5px;
+}
+
+.high-score {
+  display: flex;
+  align-items: center;
+}
+
+.high-score img {
+  width: 180px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.high-score-number {
+  font-size: 24px;
+  color: green;
+  margin-top: 5px;
+}
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-container img {
+  width: 180px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.score-number {
+  font-size: 24px;
+  color: #000;
+}
+
+.game-over {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}

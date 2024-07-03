@@ -12,9 +12,6 @@
    - **碰撞检测**: 检测蛇是否碰撞到自身或边界。
    - **食物生成**: 随机生成食物，蛇吃到食物后变长。
    - **游戏结束**: 蛇碰撞到自身或炸弹时游戏结束。
-2. **游戏用户管理**
-   - **用户注册与登录**: 管理用户信息并存储用户数据（以 JSON 文件的形式保存）。
-   - **用户数据存储**: 记录用户游戏数据，如分数和游戏时间（以 JSON 文件的形式保存）。
 3. **游戏玩法多样性**
    - **多难度模式**: 提供不同难度的游戏模式（如简单、普通、困难）。
    - **炸弹出现**: 不同难度下，炸弹与食物的比例会发生改变。每吃到两个食物，炸弹会重新生成。
@@ -33,7 +30,9 @@ snake-game/
 │   ├── components/                 # 组件
 │   │   ├── Food.tsx                # 食物组件
 │   │   ├── Snake.tsx               # 蛇组件
+│   │   ├── Bomb.tsx                # 炸弹组件
 │   ├── hooks/                      # 自定义 Hooks
+│   │   ├── useBomb.ts              # 管理炸弹状态和生成逻辑
 │   │   ├── useFood.ts              # 管理食物状态和生成逻辑
 │   │   ├── useGameStatus.ts        # 管理游戏状态（进行中、结束）
 │   │   ├── useSnake.ts             # 管理蛇的状态和移动逻辑
@@ -50,12 +49,7 @@ snake-game/
 │   ├── index.tsx                   # 应用入口文件
 │   ├── styles.css                  # 全局样式文件
 ├── tests/                          # 测试文件
-│   ├── Snake.test.ts               # 蛇组件测试
-│   ├── Food.test.ts                # 食物组件测试
 │   ├── GameBoard.test.ts           # 游戏主板组件测试
-│   ├── useSnake.test.ts            # useSnake Hook 测试
-│   ├── useFood.test.ts             # useFood Hook 测试
-│   ├── useGameStatus.test.ts       # useGameStatus Hook 测试
 ├── vite.config.ts                  # Vite 配置文件
 ├── vitest.config.ts                # Vitest 配置文件
 ├── tsconfig.json                   # TypeScript 配置文件

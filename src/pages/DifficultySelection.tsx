@@ -1,7 +1,15 @@
-// 难度选择页面
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DifficultySelection.css';
+
+import Difficulty1 from '../assets/Difficulty1.png';
+import Difficulty2 from '../assets/Difficulty2.png';
+import Difficulty3 from '../assets/Difficulty3.png';
+import Difficulty4 from '../assets/Difficulty4.png';
+import Difficulty5 from '../assets/Difficulty5.png';
+import DifficultyLevelIcon from '../assets/DifficultyLevel.png';
+import IncreaseDifficultyIcon from '../assets/IncreaseDifficulty.png';
+import OkIcon from '../assets/OK.png';
 
 const DifficultySelection: React.FC = () => {
   const [difficulty, setDifficulty] = useState(1);
@@ -12,21 +20,23 @@ const DifficultySelection: React.FC = () => {
   };
 
   const handleDifficultySelect = () => {
-    navigate('/game');
+    navigate('/game', { state: { difficulty } });
   };
+
+  const difficultyImages = [Difficulty1, Difficulty2, Difficulty3, Difficulty4, Difficulty5];
 
   return (
     <div className="difficulty-container">
       <div className="difficulty-header">
-        <img src="/src/assets/DifficultyLevel.png" alt="难度等级" className="difficulty-icon" />
-        <span className="difficulty-level">{difficulty}</span> 
+        <img src={DifficultyLevelIcon} alt="难度等级" className="difficulty-icon" />
+        <img src={difficultyImages[difficulty - 1]} alt={`难度 ${difficulty}`} className="difficulty-level-image" />
       </div>
       <div className="difficulty-buttons">
         <button onClick={increaseDifficulty}>
-          <img src="/src/assets/IncreaseDifficulty.png" alt="增加难度" />
+          <img src={IncreaseDifficultyIcon} alt="增加难度" />
         </button>
         <button onClick={handleDifficultySelect}>
-          <img src="/src/assets/OK.png" alt="确定" />
+          <img src={OkIcon} alt="确定" />
         </button>
       </div>
     </div>
