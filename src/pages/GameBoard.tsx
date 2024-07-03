@@ -1,29 +1,41 @@
+/**
+ * @file GameBoard 组件文件
+ * @module GameBoard
+ * @description 定义游戏主界面组件，管理游戏状态和逻辑
+ */
+
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Snake from '../components/Snake';
 import Food from '../components/Food';
 import Bomb from '../components/Bomb';
-import GameOverImage from '../assets/GameOver.png'; 
+import GameOverImage from '../assets/GameOver.png';
 import PauseGameImage from '../assets/PauseGame.png';
-import GoImage from '../assets/Go.png'; 
+import GoImage from '../assets/Go.png';
 import './GameBoard.css';
 import { getRandomPosition, checkCollision } from '../utils/gameUtils';
 import { useSnake } from '../hooks/useSnake';
 import { useBombs } from '../hooks/useBombs';
 
 const speeds = [1, 1.5, 2, 2.5, 3];
-const directionCooldown = 100; 
+const directionCooldown = 100;
 
 interface Position {
   x: number;
   y: number;
 }
 
+/**
+ * 游戏主界面组件
+ * @class
+ * @description 用于展示和管理游戏状态的 React 组件
+ * @returns {React.ReactElement} 返回游戏主界面的 JSX 元素
+ */
 const GameBoard: React.FC = () => {
   const location = useLocation();
   const difficulty = location.state?.difficulty || 1;
   const [score, setScore] = useState(0);
-  const [foodEaten, setFoodEaten] = useState(0); 
+  const [foodEaten, setFoodEaten] = useState(0);
   const speed = speeds[difficulty - 1];
   const [highScore, setHighScore] = useState(Number(localStorage.getItem(`highScore_${difficulty}`)) || 0);
   const [food, setFood] = useState<Position>(getRandomPosition());
@@ -34,10 +46,16 @@ const GameBoard: React.FC = () => {
   ]);
   const [isPaused, setIsPaused] = useState(false);
   const [lastMoveTime, setLastMoveTime] = useState(Date.now());
-  const [isGameOver, setIsGameOver] = useState(false); 
+  const [isGameOver, setIsGameOver] = useState(false);
   const { bombs, generateBombs } = useBombs(difficulty, snake, food, foodEaten);
   const navigate = useNavigate();
 
+  /**
+   * 处理键盘按键事件的回调函数
+   * @function
+   * @param {KeyboardEvent} e - 键盘事件对象
+   * @returns {void}
+   */
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     const now = Date.now();
     if (now - lastMoveTime < directionCooldown) return;
@@ -75,8 +93,13 @@ const GameBoard: React.FC = () => {
   }, [handleKeyDown]);
 
   useEffect(() => {
-    if (isPaused || isGameOver) return; 
+    if (isPaused || isGameOver) return;
 
+    /**
+     * 移动蛇并检查碰撞的函数
+     * @function
+     * @returns {void}
+     */
     const moveSnakeAndCheckCollisions = () => {
       moveSnake();
       const newSnake = [...snake];
@@ -100,7 +123,7 @@ const GameBoard: React.FC = () => {
             setHighScore(score);
             localStorage.setItem(`highScore_${difficulty}`, score.toString());
           }
-          setIsGameOver(true); 
+          setIsGameOver(true);
           setIsPaused(true);
           return;
         }
@@ -112,10 +135,20 @@ const GameBoard: React.FC = () => {
     return () => clearInterval(interval);
   }, [snake, moveSnake, food, score, speed, isPaused, isGameOver, highScore, difficulty, bombs, setSnake, foodEaten]);
 
+  /**
+   * 切换游戏暂停状态的函数
+   * @function
+   * @returns {void}
+   */
   const handlePause = () => {
     setIsPaused(prevIsPaused => !prevIsPaused);
   };
 
+  /**
+   * 重置游戏状态的函数
+   * @function
+   * @returns {void}
+   */
   const handleRestart = () => {
     const initialSnake = [
       { x: 10, y: 10 },
@@ -126,7 +159,7 @@ const GameBoard: React.FC = () => {
     setScore(0);
     setFoodEaten(0);
     setIsPaused(false);
-    setIsGameOver(false); 
+    setIsGameOver(false);
 
     let newFood: Position;
     do {
@@ -137,6 +170,11 @@ const GameBoard: React.FC = () => {
     generateBombs();
   };
 
+  /**
+   * 退出游戏返回主页的函数
+   * @function
+   * @returns {void}
+   */
   const handleExit = () => {
     navigate('/');
   };

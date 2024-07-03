@@ -42,7 +42,8 @@ snake-game/
 │   │   ├── GameBoard.tsx            # 游戏主页面
 │   │   ├── GameBoard.css            # 游戏主页面样式
 │   ├── types/                      # TypeScript 类型定义
-│   │   ├── index.ts                # 项目中使用的类型和接口
+│   │   ├── index.d.ts                # 声明文件，用于声明 @testing-library/jest-dom 模块
+│   │   ├── custom.d.ts               # 声明文件，用于声明各种图片格式模块
 │   ├── utils/                      # 工具函数
 │   │   ├── gameUtils.ts            # 游戏工具函数（生成随机位置、检测碰撞等）
 │   ├── App.tsx                     # 主应用组件
@@ -50,6 +51,7 @@ snake-game/
 │   ├── styles.css                  # 全局样式文件
 ├── tests/                          # 测试文件
 │   ├── GameBoard.test.ts           # 游戏主板组件测试
+│   ├── setup.ts                    # 测试设置文件
 ├── vite.config.ts                  # Vite 配置文件
 ├── vitest.config.ts                # Vitest 配置文件
 ├── tsconfig.json                   # TypeScript 配置文件

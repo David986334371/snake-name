@@ -1,3 +1,9 @@
+/**
+ * @file DifficultySelection 组件文件
+ * @module DifficultySelection
+ * @description 定义难度选择组件，用于游戏开始前选择难度
+ */
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DifficultySelection.css';
@@ -11,14 +17,30 @@ import DifficultyLevelIcon from '../assets/DifficultyLevel.png';
 import IncreaseDifficultyIcon from '../assets/IncreaseDifficulty.png';
 import OkIcon from '../assets/OK.png';
 
+/**
+ * 难度选择组件
+ * @class
+ * @description 用于选择游戏难度的 React 组件
+ * @returns {React.ReactElement} 返回难度选择的 JSX 元素
+ */
 const DifficultySelection: React.FC = () => {
   const [difficulty, setDifficulty] = useState(1);
   const navigate = useNavigate();
 
+  /**
+   * 增加难度的函数
+   * @function
+   * @returns {void}
+   */
   const increaseDifficulty = () => {
     setDifficulty((prevDifficulty) => (prevDifficulty < 5 ? prevDifficulty + 1 : 1));
   };
 
+  /**
+   * 处理难度选择的函数
+   * @function
+   * @returns {void}
+   */
   const handleDifficultySelect = () => {
     navigate('/game', { state: { difficulty } });
   };

@@ -19,7 +19,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "typeRoots": ["./node_modules/@types", "./src/types"],
-    "types": ["vitest", "@testing-library/jest-dom"]
+    "types": ["testing-library__jest-dom"]
   },
   "include": ["src"]
 }
